@@ -23,13 +23,13 @@
 
 
 
-<body data-spy="scroll" data-target=".navbar">  
+<body data-spy="scroll" data-target=".navbar">
     <Preloader>
     <<div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
 
-    <!--Header-->  
+    <!--Header-->
     <header>
         <nav class="navbar navbar-fixed-top">
             <div class="container-fluid">
@@ -51,11 +51,11 @@
             </div>
         </nav>
     </header>
-    
+
 
 
     <!-- Header Ends-->
-    
+
     <!--Home-->
     <section id="home">
         <!--Background video-->
@@ -68,14 +68,14 @@
         <!-- Overlay-->
         <div id="home-overlay"></div>
 
-        <!--home content--> 
+        <!--home content-->
         <div id="home-content" class="text-center">
             <div id="home-content-inner">
                 <div id="home-heading">
                     <h1 id="home-heading-1">Summerise</h1><br>
                     <h3 id="home-heading-2" class="motto">Go to the main ideas in your texts, summarize them in<span> 1 Click</span>.</h3>
                 </div>
-                
+
                 <div id="home-text">
                     <p>Copy and paste your argumentative text.</p>
                 </div>
@@ -106,11 +106,24 @@
                              <hr>
                              <form method="POST" action="/analyze">
                                 <textarea name="rawtext" cols="3" rows="5" class="form-control" required="true" placeholder="Enter Text Here"></textarea>
-          
+
                                 <br/>
                                 <button class="btn btn-general btn-clear" type="reset">Clear</button>
                                 <button class="btn btn-general btn-sum" type="submit">Summarize</button>
                             </form>
+                         </div>
+                         <div class="about-item text-center">
+                             <i class="fa fa-pencil"></i>
+                             <hr>
+                             <form method="POST" action="/ocr" enctype=multipart/form-data>
+                               <input type=file name=file>
+                               <input type=submit value=Upload>
+                            </form>
+                         </div>
+                         <div class="about-item text-center">
+                             <i class="fa fa-pencil"></i>
+                             <hr>
+                             <button class="btn btn-general btn-sum" type="submit">Take Snap</button>   
                          </div>
 
                      </div>
@@ -137,10 +150,10 @@
                                         <h5 class="center">Your Text</h5>
                                         <hr>
                                         <p class="light">{{ctext}}</p>
-   
-                                    
-                                </div> 
-                            </div>      
+
+
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div id="result-right">
@@ -148,7 +161,7 @@
                                             <i class="fa fa-pencil"></i>
                                             <h5 class="center">Text Summarized</h5>
                                             <hr>
-                                            <p class="light">{{ final_summary }}</p>  
+                                            <p class="light">{{ final_summary }}</p>
                                     </div>
                             </div>
                         </div>
@@ -171,12 +184,12 @@
                 <button onclick="showPanel(2,'#f4c613')">NLTK</button>
                 <button onclick="showPanel(3,'#f4c613')">Sumy LexRank</button>
             </div>
-        
+
         <div class="tabPanel"><p style="padding:5px;font-size:14px;">{{ final_summary_spacy }}</p></div>
         <div class="tabPanel"><p style="padding:5px;font-size:14px;">{{ final_summary_gensim }}</div>
         <div class="tabPanel"><p style="padding:5px;font-size:14px;">{{ final_summary_nltk }}</div>
         <div class="tabPanel"><p style="padding:5px;font-size:14px;">{{ final_summary_sumy }}</div>
-    </div> 
+    </div>
 
 </section>-->
 
@@ -188,15 +201,15 @@
                 <div id="services-tabs">
 
                     <ul class="text-center">
-                        <li><a href="#service-tab-1">SpaCy Summarizer</a></li>
-                        <li><a href="#service-tab-2">Gensim Summarizer</a></li>
-                        <li><a href="#service-tab-3">NLTK</a></li>
-                        <li><a href="#service-tab-4">Sumy LexRank</a></li>
+                        <li><a href="#service-tab-1">Algorithm 1</a></li>
+                        <li><a href="#service-tab-2">Algorithm 2</a></li>
+                        <li><a href="#service-tab-3">Algorithm 3</a></li>
+                        <li><a href="#service-tab-4">Algorithm 4</a></li>
                     </ul>
 
                     <!-- Service Tab 01 -->
                     <div id="service-tab-1" class="service-tab">
-                        
+
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6" class="text-center">
@@ -217,7 +230,7 @@
 
                     <!-- Service Tab 02 -->
                     <div id="service-tab-2" class="service-tab">
-                        
+
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6" class="text-center">
@@ -238,7 +251,7 @@
 
                     <!-- Service Tab 03 -->
                     <div id="service-tab-3" class="service-tab">
-                        
+
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6" class="text-center">
@@ -258,7 +271,7 @@
                     </div>
                     <!-- Service Tab 04 -->
                     <div id="service-tab-4" class="service-tab">
-                        
+
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6" class="text-center">
@@ -317,7 +330,7 @@
                                 <p>
                                         Hi, I’m Amal, Data Science Engineer,
                                             with a background in ICT Engineering, Computer & Network Security specialization who loves building AI products.
-                                        I’ve been developed a lot of AI apps using Deep and Machine Learning that lets automatic and fast analysis happens. 
+                                        I’ve been developed a lot of AI apps using Deep and Machine Learning that lets automatic and fast analysis happens.
                                         I’m interested in applying Machine Learning in Big Data, NLP, Cybersecurity and any data related domain.
                                             I’d love to combine my passion for AI, with my software
                                             development skills to continue building personalized AI products for people.
@@ -325,7 +338,7 @@
 
                                 <p>Following my passion for technology was one of the best decisions I ever made.</p>
                             </div>
-                        
+
 
                     </div>
                 </div>
@@ -362,7 +375,7 @@
                             <i class="fa fa-rocket"></i>
                             <h3>Mission</h3>
                             <hr>
-                            <p>Provide exposure of latest tools and technologies in the area of engineering and technology. 
+                            <p>Provide exposure of latest tools and technologies in the area of engineering and technology.
                                     Promote research based projects/activities in the emerging areas of technology convergence
                             </p>
                         </div>
@@ -411,16 +424,16 @@
     <section id="contact">
 
             <div class="content-box-md">
-    
+
                 <div class="container">
-    
+
                     <div class="row">
-    
+
                         <div class="col-md-6 col-sm-6 wow slideInLeft" data-wow-duration="1s">
-    
+
                             <!-- Contact Left -->
                             <div id="contact-left">
-    
+
                                 <div class="vertical-heading">
                                     <h5>Who We Are</h5>
                                     <h2>Get<br>In <strong>Touch</strong></h2>
@@ -428,22 +441,22 @@
                                 <br>
                                 <br>
                                 <h4>Do you have a question, need help with a problem ? Or do you simply want to communicate with me ? Please feel free to contact me.</h4>
-    
-                                
-    
+
+
+
                             </div>
-    
+
                         </div>
                         <div class="col-md-6 col-sm-6 wow slideInRight" data-wow-duration="1s">
-    
+
                             <!-- Contact Right -->
                             <div id="contact-right">
                                     <div id="offices">
-    
+
                                             <div class="row">
-            
+
                                                 <div class="col-md-6">
-            
+
                                                     <div class="office">
                                                         <h3>Tunisia</h3>
                                                         <ul class="office-details">
@@ -451,12 +464,12 @@
                                                             <li><i class="fa fa-map-marker"></i><span>Tunis, Tunisia.</span></li>
                                                         </ul>
                                                     </div>
-            
+
                                                 </div>
-                                        
-            
+
+
                                             </div>
-            
+
                                         </div>
 
                                         <ul class="social-list">
@@ -464,18 +477,18 @@
                                                 <li><a href="https://github.com/AmalM7"><i class="fa fa-github"></i></a></li>
                                                 <li><a href="https://www.facebook.com/amal.menzli"><i class="fa fa-facebook"></i></a></li>
                                         </ul>
-            
-                                </div>       
+
+                                </div>
                         </div>
-    
+
                     </div>
-    
+
                 </div>
-    
+
             </div>
-    
+
         </div>
-    
+
         </section>
         <!-- Contact Ends -->
 
@@ -509,7 +522,7 @@
     <!-- Responsive Tabs JS -->
     <script src="{{ url_for('static', filename='js/responsive-tabs/jquery.responsiveTabs.min.js') }}"></script>
 
-    
+
 
 
 </body>
