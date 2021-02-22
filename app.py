@@ -4,12 +4,13 @@ import cv2
 import pytesseract
 from flask import Flask, render_template, request, url_for
 from PIL import Image
+from werkzeug.utils import secure_filename
 
 from summarizer1 import summarize
 
-UPLOAD_FOLDER = '/static/uploads/'
-
 app = Flask(__name__)
+
+UPLOAD_FOLDER = '/static/uploads/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
@@ -37,25 +38,38 @@ def analyze():
                            final_summary_sumy=final_summary_sumy)
 
 
+def ocr_core():
+    # """
+    # This function will handle the core OCR processing of images.
+    # """
+    print("hoooooooooo rhaaaaa hai")
+    pytesseract.pytesseract.tesseract_cmd = r'D:\\OCRLIB\\tesseract.exe'
+    text = pytesseract.image_to_string(Image.open('ocr_image.jpg'))  # We'll use Pillow's Image class to open the image and pytesseract to detect the string in the image
+    print("hooooo gyaaaaaaaaaaaaaaaaaaa")
+    return text
+
+
 @app.route('/ocr', methods=['POST', 'GET'])
 def upload_file():
     start = time.time()
     if request.method == "POST":
         file = request.files['file']
+        # filename = secure_filename(file.filename)
+        # f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        #
+        # # add your custom code to check that the uploaded file is a valid image and not a malicious file (out-of-scope for this post)
+        # file.save(f)
+        # # print(file.filename)
+        #
+        # image = cv2.imread(UPLOAD_FOLDER + "/"+file.filename)
+        # # os.remove(UPLOAD_FOLDER + "ocr_image.jpg")
+        # gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        file.save(secure_filename('ocr_image.jpg'))
 
-        f = os.path.join(app.config['UPLOAD_FOLDER'],'ocr_image.jpg')
-
-        # add your custom code to check that the uploaded file is a valid image and not a malicious file (out-of-scope for this post)
-        file.save(f)
-        # print(file.filename)
-
-        image = cv2.imread(UPLOAD_FOLDER + "/ocr_image.jpg")
-        os.remove(UPLOAD_FOLDER + "ocr_image.jpg")
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-        rawtext = pytesseract.image_to_string(Image.open('ocr_image.jpg'))
+        rawtext = ocr_core()
 
         final_summary = summarize(rawtext)
+
         final_summary_gensim = summarize(rawtext)
         # NLTK
         final_summary_nltk = summarize(rawtext)
