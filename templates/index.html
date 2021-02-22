@@ -58,8 +58,8 @@
 
     <!--Home-->
     <section id="home">
-        <!--Background video-->
-        <div class="filter"></div>
+        <!--Background Image-->
+       <div class="filter"></div>
             <video id="home-bg-video" autoplay loop muted playsinline src="{{ url_for('static', filename='video/solo.mp4') }}" class="fillWidth"></video>
                 <div class="poster hidden">
                 <img src="{{ url_for('static', filename='video/solo.jpg') }}" alt="">
@@ -116,8 +116,11 @@
                              <i class="fa fa-pencil"></i>
                              <hr>
                              <form method="POST" action="/ocr" enctype=multipart/form-data>
-                               <input type=file name=file>
-                               <input type=submit value="upload" >
+
+
+                                 <button class="btn btn-general btn-sum"><input type=file name=file></button>
+                                 <button class="btn btn-general btn-sum" type="submit" value="submit">Summarize</button>
+<!--                                 <button type="submit" value="Submit">Submit</button>-->
                             </form>
                          </div>
                          <div class="about-item text-center">
@@ -213,12 +216,12 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6" class="text-center">
-                                    <img src="{{ url_for('static', filename='images/about/spacy.jpg') }}" alt="creativity">
+                                    <img src="{{ url_for('static', filename='images/about/lappy.jpg') }}" alt="creativity">
                                 </div>
                                 <div class="col-md-6">
                                     <div class="tab-bg">
                                         <h2>01</h2>
-                                        <h3>Text summarized with SpaCy Summarizer.</h3>
+                                        <h3>Text summarized with Algo 1</h3>
                                         <p>{{ final_summary_spacy }}</p>
 
                                     </div>
@@ -239,7 +242,7 @@
                                 <div class="col-md-6">
                                     <div class="tab-bg">
                                         <h2>02</h2>
-                                        <h3>Text summarized  with Gensim Summarizer.</h3>
+                                        <h3>Text summarized  with Algo 2</h3>
                                         <p>{{ final_summary_gensim }}</p>
 
                                     </div>
@@ -260,7 +263,7 @@
                                 <div class="col-md-6">
                                     <div class="tab-bg">
                                         <h2>03</h2>
-                                        <h3>Text summarized  with NLTK.</h3>
+                                        <h3>Text summarized  with Algo 3</h3>
                                         <p>{{ final_summary_nltk }}</p>
 
                                     </div>
@@ -280,7 +283,7 @@
                                 <div class="col-md-6">
                                     <div class="tab-bg">
                                         <h2>04</h2>
-                                        <h3>Text summarized with Sumy.</h3>
+                                        <h3>Text summarized with Algo 4</h3>
                                         <p>{{ final_summary_sumy }}</p>
 
                                     </div>
@@ -317,7 +320,7 @@
                         <div id="about-left">
                             <div class="vertical-heading">
                                 <h5>Who We are</h5>
-                                <h2>A <strong>Story</strong><br>About Me</h2>
+                                <h2>A <strong>Team</strong><br>From EEE</h2>
 
                             </div>
 
@@ -328,15 +331,10 @@
                     <div class="col-md-6 col-sm-6 wow slideInRight" data-wow-duration="1s">
                             <div id="about-right">
                                 <p>
-                                        Hi, I’m Amal, Data Science Engineer,
-                                            with a background in ICT Engineering, Computer & Network Security specialization who loves building AI products.
-                                        I’ve been developed a lot of AI apps using Deep and Machine Learning that lets automatic and fast analysis happens.
-                                        I’m interested in applying Machine Learning in Big Data, NLP, Cybersecurity and any data related domain.
-                                            I’d love to combine my passion for AI, with my software
-                                            development skills to continue building personalized AI products for people.
+                                        This is our Explo Project
                                 </p>
 
-                                <p>Following my passion for technology was one of the best decisions I ever made.</p>
+                                <p>Text Summarizer Using ML</p>
                             </div>
 
 
@@ -373,10 +371,9 @@
                     <div class="col-md-4 col-sm-4 wow fadeInLeft">
                         <div class="about-item text-center">
                             <i class="fa fa-rocket"></i>
-                            <h3>Mission</h3>
+                            <h3>Feature 1</h3>
                             <hr>
-                            <p>Provide exposure of latest tools and technologies in the area of engineering and technology.
-                                    Promote research based projects/activities in the emerging areas of technology convergence
+                            <p>Coming Soon
                             </p>
                         </div>
 
@@ -384,19 +381,18 @@
                     <div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-duration="2s">
                             <div class="about-item text-center">
                                     <i class="fa fa-eye"></i>
-                                    <h3>Vision</h3>
+                                    <h3>Feature 2</h3>
                                     <hr>
-                                    <p>My vision is to create a better every-day life for many people.
+                                    <p>Coming Soon
                                     </p>
                                 </div>
                     </div>
                     <div class="col-md-4">
                             <div class="about-item text-center wow fadeInRight">
                                     <i class="fa fa-pencil"></i>
-                                    <h3>Passion</h3>
+                                    <h3>Feature 3</h3>
                                     <hr>
-                                    <p>Enjoy the journey and try to get better every day. Don’t lose the passion and the love for what I do.
-                                     Passion should meet our professional life, and I'm a living testament to that.
+                                    <p>Coming Soon
                                     </p>
                                 </div>
                     </div>
@@ -440,7 +436,7 @@
                                 </div>
                                 <br>
                                 <br>
-                                <h4>Do you have a question, need help with a problem ? Or do you simply want to communicate with me ? Please feel free to contact me.</h4>
+                                <h4>Please feel free to contact us</h4>
 
 
 
@@ -458,10 +454,10 @@
                                                 <div class="col-md-6">
 
                                                     <div class="office">
-                                                        <h3>Tunisia</h3>
+                                                        <h3>India</h3>
                                                         <ul class="office-details">
-                                                            <li><i class="fa fa-envelope"></i><span>amalmenzli7@gmail.com</span></li>
-                                                            <li><i class="fa fa-map-marker"></i><span>Tunis, Tunisia.</span></li>
+                                                            <li><i class="fa fa-envelope"></i><span>shubhdeepk22@gmail.com</span></li>
+                                                            <li><i class="fa fa-map-marker"></i><span>Varanasi,India</span></li>
                                                         </ul>
                                                     </div>
 
@@ -473,9 +469,9 @@
                                         </div>
 
                                         <ul class="social-list">
-                                                <li><a href="https://www.linkedin.com/in/amal-menzli-3ab655155/"><i class="fa fa-linkedin"></i></a></li>
-                                                <li><a href="https://github.com/AmalM7"><i class="fa fa-github"></i></a></li>
-                                                <li><a href="https://www.facebook.com/amal.menzli"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-github"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                         </ul>
 
                                 </div>
@@ -499,7 +495,7 @@
     <div class="row">
         <div class="col-md-12">
             <p>
-                Copyright &copy; 2019. Made with <i class="fa fa-heart heart"></i> by <span>Amal</span>.
+                Copyright &copy; 2021. Made with <i class="fa fa-heart heart"></i> by <span>Team</span>.
             </p>
         </div>
     </div>
