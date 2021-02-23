@@ -7,7 +7,7 @@ from heapq import nlargest
 
 def summarize(rawtext):
     doc = nlp(rawtext)
-    tokens = [token.text for token in doc]
+    #tokens = [token.text for token in doc]
 
     stopwords = ["a", "about", "above", "after", "again", "against", "ain", "all", "am", "an", "and", "any", "are",
                  "aren",
@@ -138,6 +138,7 @@ def summarize(rawtext):
                  "serious",
                  "seriously", "sure", "t's", "third", "thorough", "thoroughly", "three", "well", "wonder"]
 
+    
     # punctuation = punctuation + '\n'
 
     word_frequencies = {}
@@ -165,15 +166,23 @@ def summarize(rawtext):
                 else:
                     sentence_scores[sent] += word_frequencies[word.text.lower()]
 
-    select_length = int(len(sentence_tokens) * 0.3)
+    select_length = int(len(sentence_tokens) * 0.33)
 
     summary = nlargest(select_length, sentence_scores, key=sentence_scores.get)
-
+    orders = []
+    for i in range(len(summary)):
+        for j in range(len(sentence_tokens)):
+            if summary[i]==sentence_tokens[j]:
+                orders.append(j)
+                break
+    orders.sort()
+    for i in range(len(orders)):
+        summary[i]=sentence_tokens[orders[i]]
     final_summary = [word.text for word in summary]
     summary = ' '.join(final_summary)
     print('nothing',summary)
     return summary
 
 
-# raw_text='While we got independence from British rule on August 15, 1947, our country was still lacking a concrete constitution. Moreover, India also did not have any experts and political powers which would help in the functioning of the state affairs smoothly.  Up until then, the 1935 Government of India Act was basically modified in order to govern, however, that act was more bent towards the colonial rule. Therefore, there was a dire need to form an exclusive constitution that would reflect all that India stands for.  # Thus, Dr. B.R. Ambedkar led a constitutional drafting committee on August 28, 1947.  After drafting, it was presented to the Constituent Assembly by the same committee on November 4, 1947. This whole procedure was very elaborate and took up to 166 days to complete. Moreover, the committee organized sessions were kept open to the public.  # No matter the challenges and hardships, our constitutional committee left no stone unturned to include rights for all. It aimed to create the perfect balance so all citizens of the country could enjoy equal rights pertaining to their religions, culture, caste, sex, creed and more. At last, they presented the official Indian constitution to the country on January 26, 1950.  # Moreover, the first session of the India Parliament was also conducted on this day. In addition to that, 26th January also witnessed the swearing-in of India’s first president, Dr. Rajendra Prasad. Thus, this day is very important as it marks the end of the British rule and birth of India as a Republic State.'
+# raw_text='Pointers, References and Dynamic Memory Allocation are the most powerful features in C/C++ language, which allows programmers to directly manipulate memory to efficiently manage the memory - the most critical and scarce resource in computer - for best performance. However, “pointer” is also the most complex and difficult feature in C/C++ language. Pointers are extremely powerful because they allows you to access addresses and manipulate their contents. But they are also extremely complex to handle. Using them correctly, they could greatly improve the efficiency and performance. On the other hand, using them incorrectly could lead to many problems, from un-readable and un-maintainable codes, to infamous bugs such as memory leaks and buffer overflow, which may expose your system to hacking. Many new languages (such as Java and C#) remove pointer from their syntax to avoid the pitfalls of pointers, by providing automatic memory management. Although you can write C/C++ programs without using pointers, however, it is difficult not to mention pointer in teaching C/C++ language. Pointer is probably not meant for novices and dummies. Pointer Variables : A computer memory location has an address and holds a content. The address is a numerical number (often expressed in hexadecimal), which is hard for programmers to use directly. Typically, each address location holds 8-bit (i.e., 1-byte) of data. It is entirely up to the programmer to interpret the meaning of the data, such as integer, real number, characters or strings. To ease the burden of programming using numerical address and programmer-interpreted data, early programming languages (such as C) introduce the concept of variables. A variable is a named location that can store a value of a particular type. Instead of numerical addresses, names (or identifiers) are attached to certain addresses. Also, types (such as int, double, char) are associated with the contents for ease of interpretation of data. Each address location typically hold 8-bit (i.e., 1-byte) of data. A 4-byte int value occupies 4 memory locations. A 32-bit system typically uses 32-bit addresses. To store a 32-bit address, 4 memory locations are required. The following diagram illustrate the relationship between computers’ memory address and content; and variable’s name, type and value used by the programmers. \'Pointers, References and Dynamic Memory Allocation are the most powerful features in C/C++ language, which allows programmers to directly manipulate memory to efficiently manage the memory - the most critical and scarce resource in computer - for best performance. However, “pointer” is also the most complex and difficult feature in C/C++ language. Pointers are extremely powerful because they allows you to access addresses and manipulate their contents. But they are also extremely complex to handle. Using them correctly, they could greatly improve the efficiency and performance. On the other hand, using them incorrectly could lead to many problems, from un-readable and un-maintainable codes, to infamous bugs such as memory leaks and buffer overflow, which may expose your system to hacking. Many new languages (such as Java and C#) remove pointer from their syntax to avoid the pitfalls of pointers, by providing automatic memory management. Although you can write C/C++ programs without using pointers, however, it is difficult not to mention pointer in teaching C/C++ language. Pointer is probably not meant for novices and dummies. Pointer Variables : A computer memory location has an address and holds a content. The address is a numerical number (often expressed in hexadecimal), which is hard for programmers to use directly. Typically, each address location holds 8-bit (i.e., 1-byte) of data. It is entirely up to the programmer to interpret the meaning of the data, such as integer, real number, characters or strings. To ease the burden of programming using numerical address and programmer-interpreted data, early programming languages (such as C) introduce the concept of variables. A variable is a named location that can store a value of a particular type. Instead of numerical addresses, names (or identifiers) are attached to certain addresses. Also, types (such as int, double, char) are associated with the contents for ease of interpretation of data. Each address location typically hold 8-bit (i.e., 1-byte) of data. A 4-byte int value occupies 4 memory locations. A 32-bit system typically uses 32-bit addresses. To store a 32-bit address, 4 memory locations are required. The following diagram illustrate the relationship between computers’ memory address and content; and variable’s name, type and value used by the programmers.'
 # summarize(raw_text)
