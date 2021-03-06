@@ -44,7 +44,7 @@ def ocr_core(filename):
     # """
     # print("hoooooooooo rhaaaaa hai")
     # print(filename)
-    pytesseract.pytesseract.tesseract_cmd = r'D:\\OCRLIB\\tesseract.exe'
+    pytesseract.pytesseract.tesseract_cmd = r'OCRLIB\\tesseract.exe'
     text = pytesseract.image_to_string(Image.open(filename))
     # print("hooooo gyaaaaaaaaaaaaaaaaaaa")
     return text
