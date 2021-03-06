@@ -85,4 +85,7 @@ def upload_file():
                                final_summary_sumy=final_summary_sumy)
 
         # os.remove('ocr_image.jpg')
-app.run(debug=True)
+        
+if __name__ == "__main__":
+    app.run(debug=True)        
+
