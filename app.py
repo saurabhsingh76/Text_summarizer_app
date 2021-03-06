@@ -1,10 +1,10 @@
 import os
 import time
-import cv2
+# import cv2
 import pytesseract
 from flask import Flask, render_template, request, url_for
 from PIL import Image
-from werkzeug.utils import secure_filename
+# from werkzeug.utils import secure_filename
 
 from summarizer1 import summarize
 

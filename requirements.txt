@@ -12,6 +12,7 @@ mccabe==0.6.1
 numpy==1.18.4
 opencv-python==4.2.0.34
 Pillow==8.1.0
+pybullet==2.7.5
 pylint==2.7.1
 pytesseract==0.3.7
 toml==0.10.2
