@@ -1,2 +1,1 @@
-# Text_summarizer_app
-Python text summarizer app
+# Python text summarizer app
