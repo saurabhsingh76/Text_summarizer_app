@@ -1,15 +1,14 @@
 import os
 import time
-# import cv2
+import cv2
 import pytesseract
 from flask import Flask, render_template, request, url_for
 from PIL import Image
-# from werkzeug.utils import secure_filename
+from werkzeug.utils import secure_filename
 
 from summarizer1 import summarize
 
 app = Flask(__name__)
-
 
 # UPLOAD_FOLDER = '/static/uploads'
 # app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -73,7 +72,7 @@ def upload_file():
 
         final_summary = summarize(rawtext)
 
-        final_summary_gensim = 'Coming Soon'
+        final_summary_gensim ='Coming Soon'
         # NLTK
         final_summary_nltk = 'Coming Soon'
         # Sumy
@@ -86,7 +85,6 @@ def upload_file():
                                final_summary_sumy=final_summary_sumy)
 
         # os.remove('ocr_image.jpg')
-
-
+        
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True) 
